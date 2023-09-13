@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gaia</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo para o menu horizontal */
+        ul.menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #F2ECE0; /* Cor de fundo do menu */
+            overflow: hidden;
+        }
+
+        ul.menu li {
+            float: left;
+        }
+
+        .topo-menu{
+            display: flex;
+            padding: 32px 56px;
+            /*justify-content: space-between;*/
+            align-items: center;
+            border-radius: 0px 0px 24px 24px;
+            background-color: #F2ECE0;
+			z-index: 1000;
+            width: 100%;
+        }
+        .logo{
+            width: 25%;
+        }
+
+        .topo-imagem{
+            width: 138.083px;
+            height: 56px;
+        }
+        .desktop-menu{
+            max-width: 90%;
+            background-color: #F2ECE0 !important;
+            padding-left: 30px;
+            width: 65%;
+        }
+
+        ul.menu li a {
+            display: block;
+            color: #130A06; /* Cor do texto do menu */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+
+            text-align: center;
+            font-family: Roboto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 28px; /* 186.667% */
+            letter-spacing: 0.2px;
+        }
+
+        ul.menu li a:hover {
+            background-color: #cfc8b9; /* Cor de fundo ao passar o mouse */
+            border-radius: 20px;
+        }
+
+        .rede-social{
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            width: 10%;
+        }
+        .banner{
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            min-width: 100%;
+            background-repeat: no-repeat;
+            margin-top: -20px;
+            color: red;
+            justify-content: center;
+            align-items: center;
+			position: relative;
+        }
+
+        .text-banner{
+            color: #F2DCB0;
+            text-align: center;
+            font-family: Inter;
+            font-size: 59px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 84px; /* 142.373% */
+            letter-spacing: 0.2px;
+            width: 50%;
+			position: absolute;
+        }
+        .socios{
+			position: relative;
+            margin-top: 120px;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            min-width: 100%;
+            /*height: 500px;
+            background-image: url("./img/socios.png");*/
+            background-repeat: no-repeat;
+            color: red;
+            align-items: center;
+        }
+        .conteudo-socios{
+            display: flex;
+            width: 949px;
+            padding: 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            border-radius: 16px;
+            background: rgba(37, 37, 37, 0.40);
+            margin-left: 60px;
+			position: absolute;
+        }
+
+        .text-socios{
+            color: #F2DCB0;
+            font-family: Inter;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 42px; /* 190.909% */
+        }
+        .titulo-socios{
+            color: #F2DCB0;
+            font-family: Inter;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 26px; /* 65% */
+        }
+        .conteudo{
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+            background-color: #F2ECE0;
+        }
+        .titulo{
+            color: #130A06;
+            text-align: center;
+            font-family: Inter;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 55px; /* 114.583% */
+            letter-spacing: 0.2px;
+            padding-left: 40px;
+            min-width: 20%;
+            text-align: start;
+        }
+        .descricao{
+            color: #130A06;
+            text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            font-family: Inter;
+            font-size: 35px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            min-width: 60%;
+            max-width: 60%;
+            text-align: justify;
+        }
+        .content-cards{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card{
+            display: flex;
+            padding: 72px 11.6px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 0;
+            border-radius: 16px;
+            background: #FFFFF4;
+            width: 25%;
+            flex-basis: 300px;
+            max-width: 400px;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        .card-titulo{
+            color: #130A06;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            display: flex;
+        }
+        .card-img{
+            width: 300px;
+            height: 300px;
+        }
+        .img-1{
+            background-image: url("./img/automacao.png");
+            background-repeat: no-repeat;
+        }
+        .img-2{
+            background-image: url("./img/descoberta.png");
+            background-repeat: no-repeat;
+        }
+        .img-3{
+            background-image: url("./img/ia.png");
+            background-repeat: no-repeat;
+        }
+        .img-4{
+            background-image: url("./img/governanca.png");
+            background-repeat: no-repeat;
+        }
+        .img-5{
+            background-image: url("./img/observabilidade.png");
+            background-repeat: no-repeat;
+        }
+
+        .card-produto{
+            display: flex;
+            padding: 72px 11.6px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 0;
+            border-radius: 16px;
+            width: 25%;
+            flex-basis: 300px;
+            max-width: 400px;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        .produto-1 {
+            position: relative;
+            background-image: url("./img/produto_rpa.png");
+            background-repeat: no-repeat;
+            min-height: 500px
+        }
+        .produto-2 {
+            position: relative;
+            background-image: url("./img/produto_bot.png");
+            background-repeat: no-repeat;
+            min-height: 500px
+        }
+        .produto-3 {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            background-image: url("./img/produto_botfarm.png");
+            background-repeat: no-repeat;
+            min-height: 500px
+        }
+		.produto-4 {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            background-image: url("./img/observabilidade_1.png");
+            background-repeat: no-repeat;
+            min-height: 500px
+        }
+        .rodape-card{
+            position: absolute;
+            bottom: 0px;
+            border-radius: 0px 0px 8px 8px;
+            background: rgba(33, 33, 33, 0.70);
+            width: 100%;
+            color: #FFF;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            flex-shrink: 0;
+        }
+        .card-parceiro{
+            background: #FFF;
+            width: 1064px;
+            height: 137px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .parceiro-1{
+            background-image: url("./img/saude.png");
+            background-repeat: no-repeat;
+            width: 189px;
+            height: 1024px;
+            flex-shrink: 0;
+        }
+        .parceiro-2{
+            background-image: url("./img/laco.png");
+            background-repeat: no-repeat;
+            width: 189px;
+            height: 1024px;
+            flex-shrink: 0;
+        }
+        .parceiro-3{
+            background-image: url("./img/dara.png");
+            background-repeat: no-repeat;
+            width: 189px;
+            height: 1024px;
+            flex-shrink: 0;
+        }
+        .parceiro-4{
+            background-image: url("./img/a4om.png");
+            background-repeat: no-repeat;
+            width: 189px;
+            height: 1024px;
+            flex-shrink: 0;
+        }
+        .parceiro-5{
+            background-image: url("./img/plani.png");
+            background-repeat: no-repeat;
+            width: 189px;
+            height: 1024px;
+            flex-shrink: 0;
+        }
+        .formulario{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        label{
+            color: #574940;
+            font-family: Inter;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 15px;
+        }
+        input{
+            width: 600px;
+            height: 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #BEB6AB;
+            background: rgba(217, 217, 217, 0.10);
+        }
+        button{
+            margin-top: 15px;
+            display: flex;
+            max-width: 1084px;
+            min-width: 400px;
+            height: 60px;
+            padding: 32px 24px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 16px;
+            background: #130A06;
+            color: #FFFFFF;
+            font-family: Inter;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 1.2px;
+        }
+        .rodape{
+            display: flex;
+            width: 1920px;
+            height: 150px;
+            justify-content: center;
+            align-items: center;
+            gap: 120px;
+            flex-shrink: 0;
+            background: #F4D083;
+        }
+    </style>
+</head>
+<body>
+
+<!-- O menu horizontal -->
+<div class="topo-menu">
+    <div class="topo-imagem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="139" height="56" viewBox="0 0 139 56" fill="none">
+            <g clip-path="url(#clip0_89_108)">
+                <path d="M20.7774 40.5653H20.5528C20.0822 40.9397 19.542 41.3408 18.9216 41.774C18.3012 42.2072 17.6381 42.5816 16.9268 42.8971C16.0657 43.3089 15.2582 43.6245 14.5094 43.8384C13.7607 44.0523 12.8141 44.1593 11.6696 44.1593C8.40724 44.1593 5.89898 43.202 4.15015 41.2927C2.39597 39.3834 1.51888 36.7575 1.51888 33.4203C1.51888 30.8906 1.96813 28.5161 2.86661 26.2966C3.76509 24.0771 4.98446 22.1144 6.51936 20.4083C8.03822 18.7397 9.82984 17.4187 11.9049 16.4454C13.9746 15.472 16.162 14.9854 18.4724 14.9854C20.157 14.9854 21.6492 15.1618 22.9434 15.5202C24.2376 15.8785 25.35 16.4293 26.2913 17.1781L34.875 15.4079L35.2708 15.8571L30.4789 38.7095C29.7301 42.1216 28.6873 44.9347 27.3609 47.1596C26.0292 49.379 24.4836 51.1492 22.7241 52.4595C20.9272 53.7912 19.0446 54.7111 17.0872 55.2298C15.1298 55.7433 13.0708 56.0053 10.9155 56.0053C8.61047 56.0053 6.73329 55.8342 5.2786 55.4866C3.82392 55.1389 2.71686 54.695 1.94673 54.1495C1.198 53.6254 0.68458 53.0371 0.411827 52.39C0.139074 51.7429 0.00537109 51.1118 0.00537109 50.4914C0.00537109 49.4218 0.385087 48.4645 1.14452 47.6088C1.90395 46.7584 2.95752 46.3306 4.30525 46.3306C5.31604 46.3306 6.21987 46.6034 7.01674 47.1435C7.8136 47.689 8.50886 48.3415 9.11319 49.1116C9.6587 49.8069 10.1614 50.6037 10.6321 51.5129C11.1027 52.4221 11.4557 53.1548 11.7017 53.7217C12.5627 53.5719 13.4184 53.3259 14.2741 52.989C15.1245 52.6521 15.9481 52.0156 16.7342 51.0797C17.483 50.1812 18.1996 48.9351 18.8842 47.3414C19.5687 45.7477 20.1998 43.4908 20.7828 40.5653H20.7774ZM24.5532 22.1518C24.5532 21.6812 24.4943 21.1998 24.3713 20.7025C24.2483 20.2051 24.013 19.7345 23.6547 19.2852C23.2964 18.8146 22.8578 18.4456 22.3337 18.1728C21.8096 17.9001 21.0983 17.7664 20.1945 17.7664C18.9751 17.7664 17.852 18.1996 16.8198 19.0713C15.7876 19.943 14.8784 21.1089 14.0923 22.569C13.3222 24.013 12.7125 25.6923 12.2632 27.6176C11.814 29.5375 11.5894 31.5217 11.5894 33.5647C11.5894 34.4632 11.6696 35.2921 11.83 36.0515C11.9905 36.811 12.2632 37.4902 12.659 38.0892C13.0547 38.6882 13.5628 39.1374 14.1885 39.4369C14.8143 39.7364 15.5256 39.8861 16.3117 39.8861C17.2316 39.8861 18.1729 39.6027 19.1355 39.0411C20.0982 38.4796 20.8737 37.8806 21.4513 37.2442L24.5585 22.1465L24.5532 22.1518Z" fill="#130A06"/>
+                <path d="M58.4548 40.0038H58.2302C57.5724 40.56 56.952 41.0734 56.3583 41.5387C55.77 42.004 55.0213 42.4693 54.1228 42.9345C53.3367 43.3463 52.5077 43.6833 51.636 43.956C50.7642 44.2234 49.8016 44.3625 48.7533 44.3625C45.491 44.3625 43.0362 43.4052 41.3836 41.4852C39.7311 39.5652 38.9075 36.9393 38.9075 33.6075C38.9075 31.0404 39.3674 28.6391 40.2873 26.3875C41.2072 24.1413 42.4319 22.1679 43.9721 20.4618C45.5284 18.7772 47.3468 17.4401 49.4325 16.4614C51.513 15.4774 53.7057 14.9854 56.0161 14.9854C57.7061 14.9854 59.1821 15.1832 60.4443 15.5736C61.7064 15.9641 62.744 16.4989 63.5515 17.1781L72.1727 15.4079L72.5631 15.8571L68.4237 33.1475C68.2739 33.7305 68.1135 34.4525 67.9477 35.3242C67.7819 36.1959 67.6963 36.8538 67.6963 37.3083C67.6963 38.378 67.9423 39.1106 68.429 39.5171C68.9157 39.9182 69.7607 40.1214 70.9587 40.1214C71.4828 40.1214 72.1138 40.0198 72.8572 39.8113C73.5953 39.6027 74.1194 39.4369 74.4189 39.3032L73.7985 41.8328C71.9427 42.5655 70.4613 43.1217 69.3435 43.5068C68.2258 43.8919 66.9422 44.0844 65.4822 44.0844C63.5515 44.0844 62.0113 43.7047 60.8614 42.9452C59.7116 42.1858 58.9094 41.2071 58.4601 40.0091L58.4548 40.0038ZM61.8027 22.1732C61.8027 21.7614 61.7439 21.2747 61.6316 20.7132C61.5193 20.1516 61.3214 19.6756 61.0379 19.2799C60.701 18.7932 60.2571 18.4242 59.7169 18.1728C59.1714 17.9215 58.4976 17.7931 57.69 17.7931C56.4493 17.7931 55.3101 18.237 54.2726 19.1248C53.2297 20.0126 52.3098 21.1998 51.5023 22.6759C50.7161 24.136 50.0957 25.8367 49.6465 27.7727C49.1972 29.7087 48.9726 31.6875 48.9726 33.7091C48.9726 34.6236 49.0421 35.4793 49.1812 36.2655C49.3202 37.0516 49.5502 37.7148 49.8711 38.2603C50.208 38.8432 50.6626 39.2925 51.2349 39.608C51.8071 39.9236 52.5237 40.084 53.3901 40.084C54.2565 40.084 55.1229 39.8273 55.9412 39.3139C56.7594 38.8005 57.5135 38.1694 58.2088 37.4206L61.8027 22.1732Z" fill="#130A06"/>
+                <path d="M97.4317 39.4958L96.8114 42.0254C94.9556 42.7581 93.4741 43.3143 92.3724 43.6994C91.2654 44.0844 89.9818 44.277 88.5218 44.277C86.2702 44.277 84.5268 43.7261 83.2807 42.6297C82.0345 41.5334 81.4088 40.1429 81.4088 38.4529C81.4088 37.7951 81.457 37.1265 81.5479 36.442C81.6388 35.7574 81.7939 34.9873 81.9971 34.1209L84.3182 25.9116C84.5268 25.1254 84.6979 24.382 84.8423 23.6761C84.9814 22.9755 85.0509 22.3337 85.0509 21.7507C85.0509 20.7025 84.837 19.9698 84.4038 19.558C83.9706 19.1462 83.1469 18.9376 81.9222 18.9376C81.3232 18.9376 80.7029 19.0339 80.0771 19.2211C79.4461 19.4083 78.9059 19.5848 78.4567 19.7559L79.077 17.2262C80.5959 16.6059 82.0506 16.0764 83.4411 15.6379C84.8316 15.1993 86.1419 14.9747 87.3827 14.9747C89.6128 14.9747 91.3349 15.5149 92.5489 16.5898C93.7576 17.6701 94.3619 19.066 94.3619 20.7934C94.3619 21.1518 94.3191 21.7775 94.2336 22.676C94.148 23.5744 93.9929 24.3981 93.7683 25.1521L91.4579 33.3347C91.2707 33.9926 91.0996 34.7413 90.9498 35.5863C90.8001 36.4313 90.7252 37.0677 90.7252 37.4956C90.7252 38.5812 90.9659 39.3246 91.4526 39.715C91.9392 40.1054 92.7789 40.3033 93.9822 40.3033C94.5438 40.3033 95.1802 40.2071 95.8915 40.0092C96.6028 39.8113 97.1162 39.6402 97.4371 39.4904L97.4317 39.4958ZM98.02 5.17162C98.02 6.59421 97.4799 7.80823 96.4049 8.81368C95.3246 9.81912 94.0303 10.3165 92.5115 10.3165C90.9926 10.3165 89.693 9.81377 88.602 8.81368C87.5164 7.81358 86.9708 6.59956 86.9708 5.17162C86.9708 3.74367 87.5164 2.52965 88.602 1.51886C89.6877 0.50807 90.9926 0 92.5115 0C94.0303 0 95.3246 0.50807 96.4049 1.51886C97.4799 2.52965 98.02 3.74902 98.02 5.17162Z" fill="#130A06"/>
+                <path d="M122.124 40.0038H121.899C121.242 40.56 120.621 41.0734 120.028 41.5387C119.439 42.004 118.69 42.4693 117.792 42.9345C117.006 43.3463 116.177 43.6833 115.305 43.956C114.433 44.2234 113.471 44.3625 112.423 44.3625C109.16 44.3625 106.705 43.4052 105.053 41.4852C103.4 39.5652 102.577 36.9393 102.577 33.6075C102.577 31.0404 103.037 28.6391 103.956 26.3875C104.876 24.1413 106.101 22.1679 107.641 20.4618C109.198 18.7772 111.016 17.4401 113.096 16.4614C115.177 15.4774 117.37 14.9854 119.68 14.9854C121.37 14.9854 122.846 15.1832 124.108 15.5736C125.37 15.9641 126.408 16.4989 127.215 17.1781L135.837 15.4079L136.227 15.8571L132.087 33.1475C131.938 33.7305 131.777 34.4525 131.612 35.3242C131.446 36.1959 131.36 36.8538 131.36 37.3083C131.36 38.378 131.606 39.1106 132.093 39.5171C132.58 39.9182 133.425 40.1214 134.622 40.1214C135.147 40.1214 135.778 40.0198 136.521 39.8113C137.259 39.6027 137.783 39.4369 138.083 39.3032L137.462 41.8328C135.607 42.5655 134.125 43.1217 133.007 43.5068C131.895 43.8919 130.606 44.0844 129.146 44.0844C127.215 44.0844 125.675 43.7047 124.525 42.9452C123.375 42.1858 122.573 41.2071 122.124 40.0091V40.0038ZM125.472 22.1732C125.472 21.7614 125.413 21.2747 125.301 20.7132C125.188 20.1516 124.991 19.6756 124.712 19.2799C124.376 18.7932 123.932 18.4242 123.391 18.1728C122.846 17.9215 122.172 17.7931 121.365 17.7931C120.129 17.7931 118.985 18.237 117.947 19.1248C116.904 20.0126 115.984 21.1998 115.177 22.6759C114.391 24.136 113.77 25.8367 113.321 27.7727C112.872 29.7087 112.647 31.6875 112.647 33.7091C112.647 34.6236 112.717 35.4793 112.856 36.2655C112.995 37.0516 113.225 37.7148 113.546 38.2603C113.883 38.8432 114.337 39.2925 114.909 39.608C115.482 39.9236 116.198 40.084 117.065 40.084C117.931 40.084 118.797 39.8273 119.616 39.3139C120.434 38.8005 121.188 38.1694 121.883 37.4206L125.477 22.1732H125.472Z" fill="#130A06"/>
+            </g>
+            <defs>
+                <clipPath id="clip0_89_108">
+                    <rect width="138.083" height="56" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="desktop-menu">
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#socios">Sócios</a></li>
+            <li><a href="#parceiros">Parceiros</a></li>
+        </ul>
+    </div>
+    <div class="rede-social">
+        <!--<div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M41.251 5.25H6.75104C5.92135 5.25 5.25104 5.92031 5.25104 6.75V41.25C5.25104 42.0797 5.92135 42.75 6.75104 42.75H41.251C42.0807 42.75 42.751 42.0797 42.751 41.25V6.75C42.751 5.92031 42.0807 5.25 41.251 5.25ZM36.9198 16.1953H33.9245C31.576 16.1953 31.1214 17.3109 31.1214 18.9516V22.5656H36.7276L35.9964 28.2234H31.1214V42.75H25.276V28.2281H20.387V22.5656H25.276V18.3937C25.276 13.5516 28.2339 10.9125 32.5557 10.9125C34.6276 10.9125 36.4042 11.0672 36.9245 11.1375V16.1953H36.9198Z" fill="#130A06"/>
+            </svg>
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M41.2524 5.25H6.75238C5.92269 5.25 5.25238 5.92031 5.25238 6.75V41.25C5.25238 42.0797 5.92269 42.75 6.75238 42.75H41.2524C42.0821 42.75 42.7524 42.0797 42.7524 41.25V6.75C42.7524 5.92031 42.0821 5.25 41.2524 5.25ZM16.3758 37.2047H10.8118V19.3078H16.3758V37.2047ZM13.5961 16.8609C12.9583 16.8609 12.3348 16.6718 11.8044 16.3174C11.2741 15.9631 10.8607 15.4594 10.6166 14.8701C10.3725 14.2808 10.3087 13.6324 10.4331 13.0068C10.5575 12.3812 10.8647 11.8065 11.3157 11.3555C11.7667 10.9045 12.3414 10.5973 12.967 10.4729C13.5926 10.3485 14.241 10.4123 14.8303 10.6564C15.4196 10.9005 15.9233 11.3139 16.2776 11.8442C16.632 12.3746 16.8211 12.9981 16.8211 13.6359C16.8164 15.4172 15.3727 16.8609 13.5961 16.8609ZM37.2071 37.2047H31.6477V28.5C31.6477 26.4234 31.6102 23.7562 28.7555 23.7562C25.8633 23.7562 25.418 26.0156 25.418 28.35V37.2047H19.8633V19.3078H25.1977V21.7547H25.2727C26.0133 20.3484 27.8274 18.8625 30.5368 18.8625C36.1711 18.8625 37.2071 22.5703 37.2071 27.3891V37.2047Z" fill="#130A06"/>
+            </svg>
+        </div>-->
+    </div>
+</div>
+<div class="conteudo">
+    <div class="banner">
+		<div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+			<video style="width: 100%; transition-duration: .3s; transition-property: opacity;" autoplay loop muted>
+				<source src="./img/Videotopodosite.mp4" type="video/mp4">
+			</video>
+		</div>
+        <div class="text-banner"><span>Simplificar o trabalho e potencializar a inteligência humana.</span></div>
+    </div>
+    <div style="padding-top: 120px">
+        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+            <div class="titulo" id="servicos">Serviços</div>
+            <div class="descricao">
+                <p>Nossa visão é liderar a revolução da transformação digital, tornando-se a principal referência nacional em soluções de automação robótica e Inteligência Artificial.</p>
+            </div>
+        </div>
+        <div class="content-cards">
+            <div class="card">
+                <div class="card-titulo">Automação de Processos Robóticos (RPA).</div>
+                <div class="card-img img-1"></div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">Descoberta e Mineração de Processos.</div>
+                <div class="card-img img-2"></div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">IA, Machine Learning, Deeplearning</div>
+                <div class="card-img img-3"></div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">Governança e integração de Dados e Privacidade (LGPD).</div>
+                <div class="card-img img-4"></div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">Observabilidade – Performance de aplicações e estruturas de AIOPS.</div>
+                <div class="card-img img-5"></div>
+            </div>
+        </div>
+    </div>
+    <div class="socios" id="socios">
+		<div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+			<video style="width: 96%; transition-duration: .3s; transition-property: opacity;" autoplay muted loop>
+				<source src="./img/Videodomeio.mp4" type="video/mp4">
+			</video>
+		</div>
+        <div class="conteudo-socios">
+            <div class="titulo-socios"><span>Os sócios</span></div>
+            <div class="text-socios">Descubra o poder da experiência! Nossos sócios, com mais de 20 anos de expertise em tecnologia, pessoas e processos, dominam os mercados de saúde, governo, financeiro, meio ambiente, utilities e muito mais. Conte conosco para soluções inovadoras, adaptadas ao seu negócio. Com histórico comprovado de sucesso em projetos complexos e foco no cliente, impulsionamos o crescimento e a eficiência da sua empresa. Confie em nós como parceiros estratégicos para alcançar resultados excepcionais no cenário em evolução. Maximize seu potencial, alcance sucesso sustentável! Entre em contato e descubra como podemos colaborar para atingir seus objetivos empresariais. Juntos, conquistaremos novos horizontes!</div>
+        </div>
+    </div>
+    <div style="padding-top: 120px">
+        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+            <div class="titulo" id="produtos">Produtos</div>
+            <div class="descricao">
+                <p>Quais os nossos diferenciais?</p>
+            </div>
+        </div>
+        <div class="content-cards">
+            <div class="card-produto">
+                <div class="card-img produto-1" style="min-height: 500px">
+                    <div class="rodape-card">
+                        <div style="padding: 10px"><p>Plataformas de RPA</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-produto">
+                <div class="card-img produto-2" style="min-height: 500px">
+                    <div class="rodape-card">
+                        <div style="padding: 10px">
+                            <p>Plataformas de Inteligência Artificial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-produto">
+                <div class="card-img produto-3" style="min-height: 500px">
+                    <div class="rodape-card">
+                        <div style="padding: 10px"><p>Plataformas Blockchain</p></div>
+                    </div>
+                </div>
+            </div>
+			<div class="card-produto">
+                <div class="card-img produto-1" style="min-height: 500px">
+                    <div class="rodape-card">
+                        <div style="padding: 10px"><p>Plataformas Observabilidade</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 120px">
+        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+            <div class="titulo" id="parceiros">Parceiros</div>
+            <div class="descricao">
+                <p>Empresas que já estão se beneficiando dos nossos resultados.</p>
+            </div>
+        </div>
+        <div class="content-cards">
+            <div class="card-parceiro">
+                <div class="parceiro-1"></div>
+                <div class="parceiro-2"></div>
+                <div class="parceiro-3"></div>
+                <div class="parceiro-4"></div>
+                <div class="parceiro-5"></div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 120px; display:none">
+        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+            <div class="titulo" id="contato">Contato</div>
+            <div class="descricao">
+                <p></p>
+            </div>
+        </div>
+        <div class="content-cards">
+            <div class="formulario">
+                <label>Nome:</label>
+                <input type="text">
+                <label>E-mail:</label>
+                <input type="text">
+                <label>Telefone:</label>
+                <input type="text">
+                <button>Enviar</button>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 120px">
+        <div class="rodape"></div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
